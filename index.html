@@ -187,7 +187,7 @@ section h2 {
   margin-bottom: 0.5rem;
 }
 .pub .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.pub .tags a, .pub .tags span {
+.pub .tags span {
   font-size: 0.78rem;
   font-weight: 600;
   padding: 0.15rem 0.55rem;
@@ -195,14 +195,18 @@ section h2 {
   text-decoration: none;
   background: var(--tag-bg);
   color: var(--tag-fg);
-  transition: opacity 0.15s;
 }
-.pub .tags a {
-  background: var(--accent);
-  color: #fff;
+a.pub {
+  text-decoration: none;
+  color: inherit;
+  display: block;
   cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.pub .tags a:hover { opacity: 0.85; }
+a.pub:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 
 /* ── EDUCATION ── */
 .edu-item {
@@ -298,17 +302,16 @@ footer {
   <section id="publications">
     <h2>Publications</h2>
 
-    <div class="pub">
+    <a class="pub" href="./icdmw2024.pdf" target="_blank" rel="noopener">
       <div class="title">Understanding the Hidden State of Language Models from the Perspective of Sentiment Analysis</div>
       <div class="authors"><strong>Kaicheng Xue</strong>, Xulang Zhang, Rui Mao, Erik Cambria</div>
       <div class="venue">IEEE ICDM Workshop (ICDMW), 2024</div>
       <div class="tags">
-        <a href="./icdmw2024.pdf" target="_blank" rel="noopener">Paper</a>
         <span>hidden states</span>
         <span>probing</span>
         <span>sentiment analysis</span>
       </div>
-    </div>
+    </a>
 
     <div class="pub">
       <div class="title" style="font-style: italic; font-weight: 600;">1 paper under review</div>
@@ -341,17 +344,16 @@ footer {
       </div>
     </div>
 
-    <div class="pub">
+    <a class="pub" href="./dp_report.pdf" target="_blank" rel="noopener">
       <div class="title">Privacy Attack via Temporal Embedding Inversion</div>
       <div class="authors"><strong>Kaicheng Xue</strong></div>
       <div class="venue">Technical Report, University of Virginia, 2026</div>
       <div class="tags">
-        <a href="./dp_report.pdf" target="_blank" rel="noopener">Paper</a>
         <span>privacy</span>
         <span>embedding inversion</span>
         <span>RAG</span>
       </div>
-    </div>
+    </a>
 
   </section>
 
