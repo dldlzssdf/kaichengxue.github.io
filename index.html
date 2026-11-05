@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kaicheng Xue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafaf8;
+  --fg: #1a1a1a;
+  --fg-muted: #555;
+  --accent: #1a5276;
+  --accent-hover: #0e3a56;
+  --border: #ddd;
+  --card-bg: #fff;
+  --tag-bg: #eef3f7;
+  --tag-fg: #1a5276;
+  --max-w: 740px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111;
+    --fg: #e0e0e0;
+    --fg-muted: #999;
+    --accent: #6db3d9;
+    --accent-hover: #8ec8e8;
+    --border: #333;
+    --card-bg: #1a1a1a;
+    --tag-bg: #1c2d3a;
+    --tag-fg: #6db3d9;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111;
+  --fg: #e0e0e0;
+  --fg-muted: #999;
+  --accent: #6db3d9;
+  --accent-hover: #8ec8e8;
+  --border: #333;
+  --card-bg: #1a1a1a;
+  --tag-bg: #1c2d3a;
+  --tag-fg: #6db3d9;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.7;
+  padding: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+nav .inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+nav .name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+nav .links { display: flex; gap: 1.25rem; }
+nav .links a {
+  color: var(--fg-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+}
+nav .links a:hover { color: var(--accent); }
+
+/* ── MAIN ── */
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── HERO ── */
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+.hero-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--border);
+  border: 3px solid var(--border);
+}
+.hero-text h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.hero-text .subtitle {
+  color: var(--fg-muted);
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+.hero-text .contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+.hero-text .contact-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.hero-text .contact-links a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .hero { flex-direction: column; align-items: center; text-align: center; }
+  .hero-text .contact-links { justify-content: center; }
+}
+
+/* ── SECTIONS ── */
+section { margin-bottom: 2.5rem; }
+section h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+.about-text { max-width: 62ch; }
+
+/* ── PUBLICATIONS ── */
+.pub {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.9rem;
+}
+.pub .title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.45;
+}
+.pub .authors {
+  font-size: 0.88rem;
+  color: var(--fg-muted);
+  margin-bottom: 0.35rem;
+}
+.pub .authors strong { color: var(--fg); font-weight: 600; }
+.pub .venue {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.pub .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.pub .tags a, .pub .tags span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  text-decoration: none;
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+  transition: opacity 0.15s;
+}
+.pub .tags a:hover { opacity: 0.8; }
+
+/* ── EDUCATION ── */
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.6rem;
+}
+.edu-item .degree { font-weight: 600; }
+.edu-item .school { color: var(--fg-muted); font-size: 0.92rem; }
+.edu-item .year { color: var(--fg-muted); font-size: 0.88rem; white-space: nowrap; }
+
+/* ── EXPERIENCE ── */
+.exp-item { margin-bottom: 1.1rem; }
+.exp-item .exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+.exp-item .role { font-weight: 600; }
+.exp-item .period { color: var(--fg-muted); font-size: 0.88rem; white-space: nowrap; }
+.exp-item .desc { color: var(--fg-muted); font-size: 0.92rem; margin-top: 0.2rem; }
+
+/* ── FOOTER ── */
+footer {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="#" class="name">Kaicheng Xue</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="./cv.pdf">CV</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <!-- Replace src with your photo -->
+    <img class="hero-photo" src="./photo.jpg" alt="Kaicheng Xue">
+    <div class="hero-text">
+      <h1>Kaicheng Xue</h1>
+      <p class="subtitle">M.S. in Computer Science · University of Virginia</p>
+      <div class="contact-links">
+        <a href="mailto:ybg4wb@virginia.edu">Email</a>
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=iII0O0oAAAAJ" target="_blank">Google Scholar</a>
+        <a href="https://github.com/dldlzssdf" target="_blank">GitHub</a>
+        <a href="./cv.pdf">CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <h2>About</h2>
+    <p class="about-text">
+      I am a Master's student in Computer Science at the University of Virginia, advised by
+      <a href="https://yangfengji.net/" target="_blank">Prof.&nbsp;Yangfeng Ji</a>.
+      I also collaborate with
+      <a href="https://tianhao.wang/" target="_blank">Prof.&nbsp;Tianhao Wang</a>
+      on privacy and agent research.
+      I received dual B.S. degrees in Mathematics and Computer Science from UW–Madison.
+    </p>
+    <p class="about-text" style="margin-top:0.6rem;">
+      My research interests lie in <strong>LLM internal mechanisms and interpretability</strong>
+      and <strong>agent learning, adaptation, and planning</strong>.
+      I am applying for CS PhD programs starting Fall 2027.
+    </p>
+  </section>
+
+  <!-- ── PUBLICATIONS ── -->
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <div class="title">Understanding the Hidden State of Language Models from the Perspective of Sentiment Analysis</div>
+      <div class="authors"><strong>Kaicheng Xue</strong>, Xulang Zhang, Rui Mao, Erik Cambria</div>
+      <div class="venue">IEEE ICDM Workshop (ICDMW), 2024</div>
+      <div class="tags">
+        <a href="./icdmw2024.pdf">Paper</a>
+        <span>hidden states</span>
+        <span>probing</span>
+        <span>sentiment analysis</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="title" style="font-style: italic; font-weight: 600;">1 paper under review</div>
+    </div>
+
+  </section>
+
+  <!-- ── RESEARCH PROJECTS ── -->
+  <section id="projects">
+    <h2>Research Projects</h2>
+
+    <div class="pub">
+      <div class="title">LLM Abuse in Digital Advertising Marketplaces: Detection and Mitigation</div>
+      <div class="authors"><strong>Kaicheng Xue</strong>, Tianhao Wang</div>
+      <div class="venue">Ongoing, University of Virginia, 2026</div>
+      <div class="tags">
+        <span>LLM safety</span>
+        <span>digital advertising</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Markov Dynamics of Hidden States and LLM Reasoning Accuracy</div>
+      <div class="authors"><strong>Kaicheng Xue</strong>, Yangfeng Ji</div>
+      <div class="venue">Master's Thesis (in progress), University of Virginia, 2026</div>
+      <div class="tags">
+        <span>hidden states</span>
+        <span>Markov chains</span>
+        <span>chain-of-thought</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Privacy Attack via Temporal Embedding Inversion</div>
+      <div class="authors"><strong>Kaicheng Xue</strong></div>
+      <div class="venue">Technical Report, University of Virginia, 2026</div>
+      <div class="tags">
+        <a href="./dp_report.pdf">Paper</a>
+        <span>privacy</span>
+        <span>embedding inversion</span>
+        <span>RAG</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div>
+        <div class="degree">M.S. in Computer Science</div>
+        <div class="school">University of Virginia · GPA: 4.0 · Advisor: Yangfeng Ji</div>
+      </div>
+      <div class="year">2025 – 2026</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="degree">B.S. in Mathematics &amp; B.S. in Computer Science</div>
+        <div class="school">University of Wisconsin–Madison · Dean's List</div>
+      </div>
+      <div class="year">2021 – 2025</div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="role">Research Assistant · University of Virginia</span>
+        <span class="period">2026 – Present</span>
+      </div>
+      <div class="desc">Research on detecting and mitigating LLM-enabled abuse in digital advertising marketplaces. PI: Tianhao Wang (CS); Co-PIs: Michael Albert (Darden), Jingjing Li (McIntire).</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="role">Research Intern · SenticNet (Sentic Team), NTU Singapore</span>
+        <span class="period">May – Sep 2024</span>
+      </div>
+      <div class="desc">Worked on LLM hidden-state analysis for sentiment understanding under the supervision of Xulang Zhang, Rui Mao, and Erik Cambria.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Kaicheng Xue · Built with GitHub Pages
+</footer>
+
+</body>
+</html>
