@@ -196,17 +196,18 @@ section h2 {
   background: var(--tag-bg);
   color: var(--tag-fg);
 }
-a.pub {
+.pub .links { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+.pub .links a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.15rem 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
   text-decoration: none;
-  color: inherit;
-  display: block;
-  cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  color: var(--accent);
+  transition: background 0.15s, color 0.15s;
 }
-a.pub:hover {
-  border-color: var(--accent);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
+.pub .links a:hover { background: var(--accent); color: var(--card-bg); }
 
 /* ── EDUCATION ── */
 .edu-item {
@@ -304,7 +305,7 @@ footer {
   <section id="publications">
     <h2>Publications</h2>
 
-    <a class="pub" href="./icdmw2024.pdf" target="_blank" rel="noopener">
+    <div class="pub">
       <div class="title">Understanding the Hidden State of Language Models from the Perspective of Sentiment Analysis</div>
       <div class="authors"><strong>Kaicheng Xue</strong>, Xulang Zhang, Rui Mao, Erik Cambria</div>
       <div class="venue">IEEE ICDM Workshop (ICDMW), 2024</div>
@@ -313,7 +314,10 @@ footer {
         <span>probing</span>
         <span>sentiment analysis</span>
       </div>
-    </a>
+      <div class="links">
+        <a href="./icdmw2024.pdf" target="_blank" rel="noopener">Paper ↗</a>
+      </div>
+    </div>
 
     <div class="pub">
       <div class="title" style="font-style: italic; font-weight: 600;">1 paper under review</div>
@@ -346,7 +350,7 @@ footer {
       </div>
     </div>
 
-    <a class="pub" href="./dp_report.pdf" target="_blank" rel="noopener">
+    <div class="pub">
       <div class="title">Privacy Attack via Temporal Embedding Inversion</div>
       <div class="authors"><strong>Kaicheng Xue</strong></div>
       <div class="venue">Technical Report, University of Virginia, 2026</div>
@@ -355,7 +359,11 @@ footer {
         <span>embedding inversion</span>
         <span>RAG</span>
       </div>
-    </a>
+      <div class="links">
+        <a href="./dp_report.pdf" target="_blank" rel="noopener">Report ↗</a>
+        <a href="https://github.com/dldlzssdf/Temporal-Embedding-Inversion" target="_blank" rel="noopener">Code ↗</a>
+      </div>
+    </div>
 
   </section>
 
